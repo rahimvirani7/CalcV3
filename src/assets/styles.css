@@ -81,7 +81,6 @@ h1 {
   padding: 5px 5px 5px 8px;
   border: 1px solid #b2b2b2;
   box-shadow: 2px 2px 3px #d8d8d8;
-  margin-left: 4px;
 }
 
 .inputGroup .label {
@@ -90,13 +89,14 @@ h1 {
   display: flex;
   justify-content: right;
   line-height: 2rem;
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
+  margin-left: 2px;
 }
 
 .result p {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 1.25rem;
+  margin: 1rem 0;
 }
 
 .result p b.value {
@@ -126,8 +126,8 @@ p.muted,
 span.muted {
   font-size: 1rem;
   font-weight: 500;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin: 10px 0;
+  display: block;
 }
 
 .btn-copy {

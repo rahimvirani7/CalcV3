@@ -40,7 +40,6 @@ const FormType1 = ({
         <p>
           Metal Value is{" "}
           <b className="value">${convertToCurrency(pmWeight * spot)}</b>
-          <br />
           <span className="muted">
             @ ${convertToCurrency(spot / ozInGrams)}/gram
           </span>

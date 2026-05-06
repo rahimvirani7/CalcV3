@@ -33,7 +33,6 @@ const FormType3 = ({ className, weight, setWeight, spot, setSpot }) => {
           <p className="mb-0">
             <b className="paid">
               ${weight && spot ? `${convertToCurrency(buyBack)}` : "0.00"}
-              <br />
             </b>
           </p>
           <p className="muted">
