@@ -22,6 +22,7 @@ body {
     &:first-of-type b {
       color: #cf1c0c;
     }
+
     &:last-of-type b {
       color: #1e9301;
     }
@@ -75,13 +76,20 @@ h1 {
   font-family: "Noto Sans", sans-serif;
   height: 1.5rem;
   font-size: 1rem;
+  border-radius: 4px;
+  border: 0;
+  padding: 5px 5px 5px 8px;
+  border: 1px solid #b2b2b2;
+  box-shadow: 2px 2px 3px #d8d8d8;
+  margin-left: 4px;
 }
+
 .inputGroup .label {
   text-align: left;
   width: 200px;
   display: flex;
   justify-content: right;
-  line-height: 1.875rem;
+  line-height: 2rem;
   margin-right: 0.25rem;
 }
 
@@ -90,14 +98,17 @@ h1 {
   font-weight: 600;
   margin-bottom: 1.25rem;
 }
+
 .result p b.value {
   color: #cf1c0c;
   font-size: 1.5rem;
 }
+
 .result p b.weight {
   font-size: 1.5rem;
   color: #010f8d;
 }
+
 .result p b.paid {
   color: #1e9301;
   font-size: 1.5rem;
@@ -145,6 +156,7 @@ img.flagimg {
   .form .inputGroup {
     display: block;
   }
+
   .inputGroup .label,
   .inputGroup input {
     display: block;
@@ -167,8 +179,10 @@ img.flagimg {
   }
 
   input {
-    background-color: #444;
+    background-color: #525252;
     color: #fff;
+    border: 1px solid #525252;
+    box-shadow: 2px 2px 3px #0b0b0b;
   }
 }
 

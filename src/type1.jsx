@@ -17,18 +17,18 @@ const FormType1 = ({
       <h1>Metal Value Calculator</h1>
       <div className="form">
         <div className="inputGroup">
-          <div className="label">Gram Weight: </div>
+          <div className="label">Gram Weight</div>
           <input
             onChange={(e) => setWeight(e.target.value / ozInGrams)}
             type="number"
           />
         </div>
         <div className="inputGroup">
-          <div className="label">Metal Purity (0.xx): </div>
+          <div className="label">Metal Purity (0.xx)</div>
           <input type="number" onChange={(e) => setPurity(e.target.value)} />
         </div>
         <div className="inputGroup">
-          <div className="label">Metal Spot ($/oz.): </div>
+          <div className="label">Metal Spot ($/oz.)</div>
           <input
             type="number"
             onChange={(e) => setSpot(e.target.value)}

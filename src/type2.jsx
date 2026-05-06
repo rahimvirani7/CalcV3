@@ -11,7 +11,7 @@ const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
       <h1>Buying Calculator</h1>
       <div className="form">
         <div className="inputGroup">
-          <div className="label">Gold Weight (oz.): </div>
+          <div className="label">Gold Weight (oz.)</div>
           <input
             value={weight ?? ""}
             onChange={(e) => {
@@ -21,7 +21,7 @@ const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
           />
         </div>
         <div className="inputGroup">
-          <div className="label">Spot ($/oz.): </div>
+          <div className="label">Spot ($/oz.)</div>
           <input
             onChange={(e) => setSpot(e.target.value)}
             value={spot}
@@ -29,7 +29,7 @@ const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
           />
         </div>
         <div className="inputGroup">
-          <div className="label">Asking $: </div>
+          <div className="label">Asking $</div>
           <input onChange={(e) => setAsking(e.target.value)} type="number" />
         </div>
       </div>

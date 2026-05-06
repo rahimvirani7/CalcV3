@@ -9,7 +9,7 @@ const FormType3 = ({ className, weight, setWeight, spot, setSpot }) => {
       <h1>Selling Calculator</h1>
       <div className="form">
         <div className="inputGroup">
-          <div className="label">Gold Weight (oz.): </div>
+          <div className="label">Gold Weight (oz.)</div>
           <input
             value={weight ?? ""}
             onChange={(e) => {
@@ -19,7 +19,7 @@ const FormType3 = ({ className, weight, setWeight, spot, setSpot }) => {
           />
         </div>
         <div className="inputGroup">
-          <div className="label">Spot ($/oz.): </div>
+          <div className="label">Spot ($/oz.)</div>
           <input
             onChange={(e) => setSpot(e.target.value)}
             value={spot}
@@ -37,7 +37,7 @@ const FormType3 = ({ className, weight, setWeight, spot, setSpot }) => {
             </b>
           </p>
           <p className="muted">
-            <b>Paid</b> @ ${spot ? convertToCurrency(spot / ozInGrams) : "0.00"}
+            <b>Pay</b> @ ${spot ? convertToCurrency(spot / ozInGrams) : "0.00"}
             /gram
           </p>
         </div>

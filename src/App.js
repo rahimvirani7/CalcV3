@@ -118,7 +118,7 @@ export default function App() {
         setGoldBidValue(data[currencyKey].bid.gold);
         setSpot(data[currencyKey].ask.gold); // set spot input value
         setBidSpot(
-          Number((data[currencyKey].bid.gold * buyBackPercentValue).toFixed(2))
+          Number((data[currencyKey].bid.gold * buyBackPercentValue).toFixed(2)),
         ); // set bid input value (tab 3)
       } catch (err) {
         console.log("API error →", err);
