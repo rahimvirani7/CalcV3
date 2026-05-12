@@ -1,4 +1,6 @@
 import { convertToCurrency, ozInGrams } from "./App";
+import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
+import Button from "@mui/material/Button";
 
 const FormType1 = ({
   className,
@@ -14,7 +16,7 @@ const FormType1 = ({
 
   return (
     <section className={className}>
-      <h1>Metal Value Calculator</h1>
+      <h1>Value Calculator</h1>
       <div className="form">
         <div className="inputGroup">
           <div className="label">Gram Weight</div>
@@ -24,11 +26,11 @@ const FormType1 = ({
           />
         </div>
         <div className="inputGroup">
-          <div className="label">Metal Purity (0.xx)</div>
+          <div className="label">Purity (0.xx)</div>
           <input type="number" onChange={(e) => setPurity(e.target.value)} />
         </div>
         <div className="inputGroup">
-          <div className="label">Metal Spot ($/oz.)</div>
+          <div className="label">Spot ($/oz.)</div>
           <input
             type="number"
             onChange={(e) => setSpot(e.target.value)}
@@ -38,19 +40,23 @@ const FormType1 = ({
       </div>
       <div className="result">
         <p>
-          Metal Value is{" "}
+          Value is{" "}
           <b className="value">${convertToCurrency(pmWeight * spot)}</b>
           <span className="muted">
             @ ${convertToCurrency(spot / ozInGrams)}/gram
           </span>
         </p>
         <p className="mb-0">
-          Metal Weight is <b className="weight">{pmWeight}</b> oz.
+          AGW is <b className="weight">{pmWeight}</b> oz.
         </p>
-        <button className="btn-copy" onClick={onCopyWeight}>
+        <Button
+          sx={{ textTransform: "lowercase" }}
+          className="btn-copy"
+          endIcon={<PanToolAltIcon />}
+          onClick={onCopyWeight}
+        >
           copy over
-        </button>{" "}
-        {/* Add Copy button */}
+        </Button>
       </div>
     </section>
   );
