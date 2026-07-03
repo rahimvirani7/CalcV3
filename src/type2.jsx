@@ -21,8 +21,10 @@ const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
           />
         </div>
         <div className="inputGroup">
-          <div className="label">Asking $</div>
-          <input onChange={(e) => setAsking(e.target.value)} type="number" />
+          <div className="label">Asking</div>
+          <div className={`moneyInput ${asking ? "hasValue" : ""}`}>
+            <input onChange={(e) => setAsking(e.target.value)} type="number" />
+          </div>
         </div>
         <div className="inputGroup">
           <div className="label">Spot ($/oz.)</div>

@@ -196,3 +196,23 @@ img.flagimg {
 .App.dark .MuiTabs-root {
   background-color: #181818;
 }
+
+/* Money Input with $ sign */
+.moneyInput {
+  position: relative;
+}
+
+.moneyInput::before {
+  content: "$";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #b2b2b2;
+  pointer-events: none;
+}
+
+.moneyInput:focus-within::before,
+.moneyInput.hasValue::before {
+  content: "";
+}
