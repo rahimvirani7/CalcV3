@@ -86,7 +86,7 @@ export default function App() {
   });
 
   const [selectedTab, setSelectedTab] = React.useState(0);
-  const buyBackPercentValue = 0.982; // 98.2% of Bid
+  const buyBackPercentValue = 0.975; // 97.5% of Bid
 
   const handleChange = (event, newTab) => {
     setSelectedTab(newTab);
