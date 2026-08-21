@@ -13,6 +13,10 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import usdImage from "./assets/USD.png";
 import cadImage from "./assets/CAD.png";
 
+const DEFAULT_BUYBACK_PERCENT_VALUE = 0.975;
+const BUYBACK_CONFIG_URL =
+  "https://gist.githubusercontent.com/rahimvirani7/1b5e34aaf296b74529ee72a8991316a6/raw/gist_calc-v3.json";
+
 export const convertToCurrency = (value) => {
   return Number(value)
     .toFixed(2)
@@ -84,9 +88,39 @@ export default function App() {
   const [viewMode, setViewMode] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });
+  const [buyBackPercentValue, setBuyBackPercentValue] = useState(
+    DEFAULT_BUYBACK_PERCENT_VALUE,
+  );
 
   const [selectedTab, setSelectedTab] = React.useState(0);
-  const buyBackPercentValue = 0.975; // 97.5% of Bid
+
+  // Fetch buyback config value from the provided Github Gist URL
+  useEffect(() => {
+    let isMounted = true;
+
+    (async () => {
+      try {
+        const res = await fetch(BUYBACK_CONFIG_URL, { cache: "no-store" });
+        if (!res.ok || !isMounted) return;
+
+        const configValue = Number((await res.json())?.buyBackPercentValue);
+        if (
+          isMounted &&
+          Number.isFinite(configValue) &&
+          configValue > 0 &&
+          configValue <= 1
+        ) {
+          setBuyBackPercentValue(configValue);
+        }
+      } catch (err) {
+        console.log("Buyback config error →", err);
+      }
+    })();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const handleChange = (event, newTab) => {
     setSelectedTab(newTab);
@@ -133,7 +167,7 @@ export default function App() {
       isMounted = false;
       clearInterval(intervalId);
     };
-  }, [currency]);
+  }, [currency, buyBackPercentValue]);
 
   // For theme persistence across session
   useEffect(() => {
