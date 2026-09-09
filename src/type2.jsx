@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { convertToCurrency, ozInGrams } from "./App";
+import Checkbox from "@mui/material/Checkbox";
 
 const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
   const [asking, setAsking] = useState(0);
+  const [showAskingInfo, setShowAskingInfo] = useState(true);
   const coinSpot = spot * weight;
   const premium = asking - coinSpot;
 
@@ -53,12 +55,27 @@ const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
             %
           </p>
           <p className="muted">
-            <b>Asking</b> @ $
-            {asking && weight ? convertToCurrency(asking / weight) : "0.00"}
-            /oz{" "}
-            {asking > 0 &&
-              weight &&
-              "($" + convertToCurrency(asking / weight / ozInGrams) + "/gram)"}
+            <Checkbox
+              sx={{ p: 0, mr: 2 }}
+              size="small"
+              color="error"
+              checked={showAskingInfo}
+              onChange={(e) => {
+                setShowAskingInfo(e.target.checked);
+              }}
+            />
+            {showAskingInfo && (
+              <>
+                <b>Asking</b> @ $
+                {asking && weight ? convertToCurrency(asking / weight) : "0.00"}
+                /oz{" "}
+                {asking > 0 &&
+                  weight &&
+                  "($" +
+                    convertToCurrency(asking / weight / ozInGrams) +
+                    "/gram)"}
+              </>
+            )}
           </p>
         </div>
       </div>
