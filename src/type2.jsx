@@ -34,6 +34,7 @@ const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
             onChange={(e) => setSpot(e.target.value)}
             value={spot}
             type="number"
+            disabled={true}
           />
         </div>
       </div>

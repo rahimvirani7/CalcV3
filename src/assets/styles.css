@@ -70,6 +70,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  position: relative;
 }
 
 .inputGroup input {
@@ -152,6 +153,13 @@ img.flagimg {
   padding: 4px 4px 0 0;
 }
 
+.inputGroup .MuiCheckbox-root {
+  position: absolute;
+  padding: 0;
+  top: 6px;
+  left: 20%;
+}
+
 @media only screen and (max-width: 768px) {
   .form .inputGroup {
     display: block;
@@ -160,6 +168,12 @@ img.flagimg {
   .inputGroup .label,
   .inputGroup input {
     display: block;
+  }
+
+  .inputGroup .MuiCheckbox-root {
+    left: -20%;
+    bottom: 1rem;
+    top: unset;
   }
 }
 

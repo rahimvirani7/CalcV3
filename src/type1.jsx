@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { convertToCurrency, ozInGrams } from "./App";
 import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
-import Button from "@mui/material/Button";
+import { Button, Checkbox } from "@mui/material";
 
 const FormType1 = ({
   className,
@@ -13,6 +14,7 @@ const FormType1 = ({
   onCopyWeight,
 }) => {
   const pmWeight = parseFloat(weight * purity).toFixed(4);
+  const [enableSpotEdit, setEnableSpotEdit] = useState(false);
 
   return (
     <section className={className}>
@@ -30,9 +32,18 @@ const FormType1 = ({
           <input type="number" onChange={(e) => setPurity(e.target.value)} />
         </div>
         <div className="inputGroup">
+          <Checkbox
+            size="small"
+            color="error"
+            checked={enableSpotEdit}
+            onChange={(e) => {
+              setEnableSpotEdit(e.target.checked);
+            }}
+          />
           <div className="label">Spot ($/oz.)</div>
           <input
             type="number"
+            disabled={!enableSpotEdit}
             onChange={(e) => setSpot(e.target.value)}
             value={spot}
           />
