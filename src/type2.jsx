@@ -45,7 +45,7 @@ const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
               ${weight && spot ? `${convertToCurrency(coinSpot)}` : "0.00"}
               &nbsp;+&nbsp;
               {asking && coinSpot ? `$${convertToCurrency(premium)}` : "$??"}
-              <span className="muted mt-0 mb-0">(coin spot) + (premium)</span>
+              <span className="muted mt-0 mb-0">coin spot + premium</span>
             </b>
           </p>
           <p className="muted">

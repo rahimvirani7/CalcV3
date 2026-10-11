@@ -115,6 +115,10 @@ h1 {
   font-size: 1.5rem;
 }
 
+.bidAmount {
+  color: #9147bb;
+}
+
 .MuiTabs-list {
   justify-content: center;
 }
@@ -211,13 +215,22 @@ img.flagimg {
   background-color: #181818;
 }
 
-/* Money Input with $ sign */
-.moneyInput {
+/* Inputs with symbols */
+.moneyInput,
+.percentInput {
   position: relative;
+}
+
+.percentInput::before {
+  content: "%";
 }
 
 .moneyInput::before {
   content: "$";
+}
+
+.moneyInput::before,
+.percentInput::before {
   position: absolute;
   left: 8px;
   top: 50%;
@@ -227,6 +240,8 @@ img.flagimg {
 }
 
 .moneyInput:focus-within::before,
-.moneyInput.hasValue::before {
+.moneyInput.hasValue::before,
+.percentInput:focus-within::before,
+.percentInput.hasValue::before {
   content: "";
 }

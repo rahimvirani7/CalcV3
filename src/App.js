@@ -6,8 +6,9 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import FormType1 from "./type1";
 import FormType2 from "./type2";
-import { styled } from "styled-components";
 import FormType3 from "./type3";
+import AuctionBidForm from "./type4";
+import { styled } from "styled-components";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import usdImage from "./assets/USD.png";
@@ -61,7 +62,7 @@ const CustomTab = styled(Tab)`
   }
 
   @media (max-width: 768px) {
-    width: 33.33%;
+    width: 25%;
   }
 
   /* dark mode overrides */
@@ -238,6 +239,7 @@ export default function App() {
             <CustomTab component="div" label="Value" {...a11yProps(0)} />
             <CustomTab label="Buying" {...a11yProps(1)} />
             <CustomTab label="Selling" {...a11yProps(2)} />
+            <CustomTab label="Auction" {...a11yProps(3)} />
           </Tabs>
         </Box>
         <CustomTabPanel value={selectedTab} index={0}>
@@ -263,6 +265,13 @@ export default function App() {
           <FormType3
             spot={bidSpot}
             setSpot={setBidSpot}
+            weight={weightInOz}
+            setWeight={setWeightInOz}
+          />
+        </CustomTabPanel>
+        <CustomTabPanel value={selectedTab} index={3}>
+          <AuctionBidForm
+            spot={spot}
             weight={weightInOz}
             setWeight={setWeightInOz}
           />
