@@ -52,12 +52,25 @@ body {
   margin-bottom: 0 !important;
 }
 
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
 h1 {
   margin: 0 0 1.75rem 0;
 }
 
+.keep-together {
+  white-space: nowrap;
+  display: inline-block;
+}
+
 .form {
-  text-align-last: left;
+  text-align: left;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;

@@ -81,6 +81,7 @@ export default function App() {
   const [spot, setSpot] = useState("");
   const [bidSpot, setBidSpot] = useState("");
   const [weightInOz, setWeightInOz] = useState(0); // Separate state for FormType2
+  const [asking, setAsking] = useState(""); // Shared asking value (Buying tab)
   const [goldAskValue, setGoldAskValue] = useState(null);
   const [goldBidValue, setGoldBidValue] = useState(null);
   const [currency, setCurrency] = useState(() => {
@@ -131,6 +132,13 @@ export default function App() {
   const handleCopyWeight = () => {
     const metalWeightOz = parseFloat((weightInGram * purity).toFixed(4));
     setWeightInOz(metalWeightOz);
+    setSelectedTab(1); // Switch to the Buying tab so the result is visible
+  };
+
+  // Copy the auction "total paying" into the Buying tab's "asking" field
+  const handleCopyTotalPayingToAsking = (totalPaying) => {
+    setAsking(parseFloat(Number(totalPaying).toFixed(2)));
+    setSelectedTab(1); // Switch to the Buying tab so the result is visible
   };
 
   useEffect(() => {
@@ -224,7 +232,12 @@ export default function App() {
         </div>
       </div>
 
-      <Box sx={{ width: "100%" }}>
+      <Box
+        sx={{
+          width: "100%",
+          background: viewMode === "dark" ? "#1e1e1e" : "#FFF",
+        }}
+      >
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={selectedTab}
@@ -259,6 +272,8 @@ export default function App() {
             setSpot={setSpot}
             weight={weightInOz}
             setWeight={setWeightInOz}
+            asking={asking}
+            setAsking={setAsking}
           />
         </CustomTabPanel>
         <CustomTabPanel value={selectedTab} index={2}>
@@ -274,6 +289,7 @@ export default function App() {
             spot={spot}
             weight={weightInOz}
             setWeight={setWeightInOz}
+            onShowInBuying={handleCopyTotalPayingToAsking}
           />
         </CustomTabPanel>
       </Box>

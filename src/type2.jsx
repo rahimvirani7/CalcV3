@@ -2,8 +2,15 @@ import { useState } from "react";
 import { convertToCurrency, ozInGrams } from "./App";
 import Checkbox from "@mui/material/Checkbox";
 
-const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
-  const [asking, setAsking] = useState(0);
+const FormType2 = ({
+  className,
+  weight,
+  setWeight,
+  spot,
+  setSpot,
+  asking,
+  setAsking,
+}) => {
   const [showAskingInfo, setShowAskingInfo] = useState(true);
   const coinSpot = spot * weight;
   const premium = asking - coinSpot;
@@ -25,7 +32,11 @@ const FormType2 = ({ className, weight, setWeight, spot, setSpot }) => {
         <div className="inputGroup">
           <div className="label">Asking</div>
           <div className={`moneyInput ${asking ? "hasValue" : ""}`}>
-            <input onChange={(e) => setAsking(e.target.value)} type="number" />
+            <input
+              value={asking ?? ""}
+              onChange={(e) => setAsking(e.target.value)}
+              type="number"
+            />
           </div>
         </div>
         <div className="inputGroup">
