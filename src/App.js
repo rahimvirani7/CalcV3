@@ -56,7 +56,7 @@ const CustomTab = styled(Tab)`
   font-weight: 500;
   text-transform: inherit;
   color: #000;
-  &.Mui-selected {
+  &&.Mui-selected {
     font-weight: 600;
     color: #010f8d;
   }
@@ -70,7 +70,7 @@ const CustomTab = styled(Tab)`
     color: #f5f5f5;
   }
 
-  .App.dark &.Mui-selected {
+  .App.dark &&.Mui-selected {
     color: #3794ff;
   }
 `;
@@ -243,9 +243,11 @@ export default function App() {
             value={selectedTab}
             onChange={handleChange}
             aria-label="basic tabs-wrapper"
-            TabIndicatorProps={{
-              sx: {
-                backgroundColor: viewMode === "dark" ? "#3794ff" : "#010f8d",
+            slotProps={{
+              indicator: {
+                sx: {
+                  backgroundColor: viewMode === "dark" ? "#3794ff" : "#010f8d",
+                },
               },
             }}
           >
