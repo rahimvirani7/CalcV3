@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { convertToCurrency, ozInGrams } from "./App";
 import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
 import { Button, Checkbox } from "@mui/material";
@@ -11,10 +10,11 @@ const FormType1 = ({
   setPurity,
   spot,
   setSpot,
+  enableSpotEdit,
+  setEnableSpotEdit,
   onCopyWeight,
 }) => {
   const pmWeight = parseFloat(weight * purity).toFixed(4);
-  const [enableSpotEdit, setEnableSpotEdit] = useState(false);
 
   return (
     <section className={className}>

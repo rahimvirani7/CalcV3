@@ -79,6 +79,7 @@ export default function App() {
   const [weightInGram, setWeightInGram] = useState(0);
   const [purity, setPurity] = useState(0);
   const [spot, setSpot] = useState("");
+  const [enableSpotEdit, setEnableSpotEdit] = useState(false); // pauses polling when true
   const [bidSpot, setBidSpot] = useState("");
   const [weightInOz, setWeightInOz] = useState(0); // Separate state for FormType2
   const [asking, setAsking] = useState(""); // Shared asking value (Buying tab)
@@ -142,6 +143,9 @@ export default function App() {
   };
 
   useEffect(() => {
+    // While the user is manually editing spot, don't fetch or poll
+    if (enableSpotEdit) return;
+
     let isMounted = true;
 
     const fetchFromWorker = async () => {
@@ -176,7 +180,7 @@ export default function App() {
       isMounted = false;
       clearInterval(intervalId);
     };
-  }, [currency, buyBackPercentValue]);
+  }, [currency, buyBackPercentValue, enableSpotEdit]);
 
   // For theme persistence across session
   useEffect(() => {
@@ -265,6 +269,8 @@ export default function App() {
             setPurity={setPurity}
             spot={spot}
             setSpot={setSpot}
+            enableSpotEdit={enableSpotEdit}
+            setEnableSpotEdit={setEnableSpotEdit}
             onCopyWeight={handleCopyWeight}
           />
         </CustomTabPanel>
